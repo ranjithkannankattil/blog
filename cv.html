@@ -59,14 +59,14 @@
       <div class="cv-company" id="co-exxonmobil" style="--dot:var(--accent);">
         <div class="cv-company-head">
           <h4>ExxonMobil</h4>
-          <time>Nov 2023 — Present</time>
+          <time>Nov 2023 — <span class="till-now"></span></time>
         </div>
         <div style="color:var(--ink-soft); font-size:.85rem; margin-bottom:.6rem;">Milan, Italy · Mozambique Rovuma LNG Phase 1 FEED</div>
 
         <div class="cv-subrole">
           <div class="role-line">
             <span class="role-title">FEED Execution Engineer</span>
-            <span class="role-time">Aug 2024 — Present</span>
+            <span class="role-time">Aug 2024 — <span class="till-now"></span></span>
           </div>
           <div class="role-loc">Milan, Italy · On-site</div>
           <p style="font-size:.9rem; color:var(--ink-soft); margin:0 0 .6rem;">
@@ -219,6 +219,11 @@
   <div>MILANO <span class="diamond-mark">◆</span> THRISSUR</div>
 </footer>
 
-<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+document.querySelectorAll('.till-now').forEach(el => {
+  el.textContent = new Date().getFullYear() + ' (Till Date)';
+});
+</script>
 </body>
 </html>
