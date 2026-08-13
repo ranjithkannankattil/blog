@@ -266,71 +266,37 @@ footer .diamond-mark{ color:var(--accent); margin:0 .5rem; }
   color:var(--ink-soft);
 }
 
-/* interactive timeline */
-.timeline-wrap{ margin-top:1.2rem; }
-.timeline-axis{
-  display:flex;
-  justify-content:space-between;
-  font-family:var(--f-mono);
-  font-size:.68rem;
-  color:var(--ink-soft);
-  padding-bottom:.5rem;
-  border-bottom:1px dashed var(--line);
-  margin-bottom:1rem;
-}
-.timeline-track{
+/* experience timeline — static vertical rail, no interactivity */
+.cv-timeline{
   position:relative;
-  height:2.6rem;
-  background:var(--paper-2);
-  border-radius:6px;
+  padding-left:1.9rem;
+  margin-top:1.4rem;
 }
-.timeline-bar{
+.cv-timeline::before{
+  content:"";
   position:absolute;
-  top:0; bottom:0;
-  border-radius:6px;
-  display:flex;
-  align-items:center;
-  padding:0 .6rem;
-  overflow:hidden;
-  text-decoration:none;
-  cursor:pointer;
-  transition:filter .15s ease, transform .15s ease;
+  left:.28rem;
+  top:.5rem;
+  bottom:.5rem;
+  width:1px;
+  background:var(--line);
 }
-.timeline-bar:hover{ filter:brightness(1.08); transform:translateY(-1px); }
-.timeline-bar .tb-label{
-  font-family:var(--f-mono);
-  font-size:.68rem;
-  font-weight:600;
-  color:#fff;
-  white-space:nowrap;
-  text-shadow:0 1px 2px rgba(0,0,0,.25);
+.cv-timeline .cv-company{
+  position:relative;
+  border-top:none;
+  padding:0 0 2.2rem;
 }
-@media (max-width:560px){
-  .timeline-bar .tb-label{ font-size:.6rem; }
-}
-
-/* jump-highlight flash when a timeline bar is tapped */
-.cv-company.cv-flash{
-  animation:cvflash 1.4s ease;
-}
-@keyframes cvflash{
-  0%   { background:var(--accent-soft); }
-  100% { background:transparent; }
-}
-
-/* collapsible bullet lists */
-.cv-bullets.is-collapsed li:nth-child(n+3){ display:none; }
-.cv-toggle{
-  font-family:var(--f-mono);
-  font-size:.72rem;
-  color:var(--accent);
-  background:none;
-  border:none;
-  cursor:pointer;
-  padding:0;
-  margin-top:.2rem;
-  text-decoration:underline;
-  text-underline-offset:.2rem;
+.cv-timeline .cv-company:last-child{ padding-bottom:0; }
+.cv-timeline .cv-company::before{
+  content:"";
+  position:absolute;
+  left:-1.9rem;
+  top:.35rem;
+  width:.6rem;
+  height:.6rem;
+  border-radius:50%;
+  background:var(--dot, var(--accent));
+  box-shadow:0 0 0 3px var(--paper), 0 0 0 4px var(--line);
 }
 
 /* ============================================================
