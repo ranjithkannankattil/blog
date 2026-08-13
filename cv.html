@@ -53,9 +53,35 @@
   </div>
 
   <div class="cv-section">
+    <div class="label">Timeline — tap a bar to jump to details</div>
+    <div class="timeline-wrap">
+      <div class="timeline-axis">
+        <span>2015</span><span>2017</span><span>2019</span><span>2021</span><span>2023</span><span>2026</span>
+      </div>
+      <div class="timeline-track">
+        <a class="timeline-bar" data-target="co-lt" style="left:0%; width:32.4%; background:#7C93A8;">
+          <span class="tb-label">L&amp;T</span>
+        </a>
+        <a class="timeline-bar" data-target="co-eil" style="left:33%; width:18%; background:#3F7D6C;">
+          <span class="tb-label">EIL</span>
+        </a>
+        <a class="timeline-bar" data-target="co-vector" style="left:53.5%; width:13.5%; background:#B4823F;">
+          <span class="tb-label">Vector</span>
+        </a>
+        <a class="timeline-bar" data-target="co-highradius" style="left:68.5%; width:7.5%; background:#8A6BA8;">
+          <span class="tb-label">HighRadius</span>
+        </a>
+        <a class="timeline-bar" data-target="co-exxonmobil" style="left:77%; width:23%; background:var(--accent); box-shadow:0 0 0 2px var(--accent-soft);">
+          <span class="tb-label">ExxonMobil</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="cv-section">
     <div class="label">Experience</div>
 
-    <div class="cv-company">
+    <div class="cv-company" id="co-exxonmobil">
       <div class="cv-company-head">
         <h4>ExxonMobil</h4>
         <time>Nov 2023 — Present</time>
@@ -101,7 +127,7 @@
       </div>
     </div>
 
-    <div class="cv-company">
+    <div class="cv-company" id="co-eil">
       <div class="cv-company-head">
         <h4>Engineers India Limited</h4>
         <time>May 2019 — Jul 2021</time>
@@ -119,7 +145,7 @@
       </ul>
     </div>
 
-    <div class="cv-company">
+    <div class="cv-company" id="co-lt">
       <div class="cv-company-head">
         <h4>Larsen &amp; Toubro</h4>
         <time>Aug 2015 — Apr 2019</time>
@@ -135,7 +161,7 @@
       </ul>
     </div>
 
-    <div class="cv-company">
+    <div class="cv-company" id="co-vector">
       <div class="cv-company-head">
         <h4>Vector Consulting Group</h4>
         <time>Aug 2021 — Jan 2023</time>
@@ -152,7 +178,7 @@
       </ul>
     </div>
 
-    <div class="cv-company">
+    <div class="cv-company" id="co-highradius">
       <div class="cv-company-head">
         <h4>HighRadius</h4>
         <time>Jan 2023 — Nov 2023</time>
@@ -217,5 +243,6 @@
 </footer>
 
 <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script src="js/cv.js"></script>
 </body>
 </html>
