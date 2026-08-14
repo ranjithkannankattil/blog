@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>New Post — Ranjith Kannankattil</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&family=Manjari:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  .admin-field{ margin-bottom:1.4rem; }
+  .admin-field label{
+    display:block; font-family:var(--f-mono); font-size:.72rem; letter-spacing:.06em;
+    text-transform:uppercase; color:var(--ink-soft); margin-bottom:.4rem;
+  }
+  .admin-field input[type=text], .admin-field input[type=date],
+  .admin-field input[type=password], .admin-field textarea{
+    width:100%; font-family:var(--f-body); font-size:1rem; padding:.7rem .9rem;
+    border:1px solid var(--line); background-color:var(--paper); color:var(--ink);
+    border-radius:2px; box-sizing:border-box;
+  }
+  .admin-field textarea{ font-family:var(--f-ml); min-height:220px; resize:vertical; line-height:1.7; }
+  .admin-field .hint{ font-size:.78rem; color:var(--ink-soft); margin-top:.35rem; }
+  .admin-row{ display:flex; gap:1rem; flex-wrap:wrap; }
+  .admin-row > div{ flex:1; min-width:200px; }
+  .admin-check{ display:flex; align-items:center; gap:.5rem; font-size:.85rem; color:var(--ink-soft); margin-top:.5rem; }
+  .publish-btn{
+    font-family:var(--f-mono); font-size:.85rem; letter-spacing:.05em; text-transform:uppercase;
+    padding:.8rem 1.6rem; background:var(--accent); color:var(--paper); border:none;
+    border-radius:2px; cursor:pointer;
+  }
+  .publish-btn:disabled{ opacity:.5; cursor:not-allowed; }
+  .admin-status{ margin-top:1.2rem; font-family:var(--f-mono); font-size:.85rem; }
+  .admin-status.error{ color:#B23A3A; }
+  .admin-status.ok{ color:#2E7D4F; }
+  .token-box{
+    border:1px dashed var(--line); padding:1rem; margin-bottom:2rem; background:var(--paper-2);
+  }
+</style>
+</head>
+<body data-section="writings">
+
+<header class="titleblock">
+  <div>
+    <div class="id">RANJITH KANNANKATTIL</div>
+    <div class="name">New Post</div>
+  </div>
+</header>
+
+<main>
+  <p style="max-width:62ch; color:var(--ink-soft); margin-top:2rem;">
+    Publishes directly to <code>js/posts.js</code> in your GitHub repo. GitHub Pages will
+    rebuild automatically — changes show up on the live site in about a minute.
+    This page isn't linked anywhere public; only reachable if you know the URL.
+  </p>
+
+  <div class="admin-field">
+    <label for="post-search">Edit an existing post (leave blank to write a new one)</label>
+    <input type="text" id="post-search" placeholder="Type to search by title…">
+    <select id="existing-post" size="7" style="width:100%; font-family:var(--f-ml); font-size:.9rem; margin-top:.5rem; background-color:var(--paper); border:1px solid var(--line); color:var(--ink);">
+      <option value="">— Loading posts… —</option>
+    </select>
+    <div class="hint" id="editing-indicator"></div>
+  </div>
+
+  <div class="token-box">
+    <div class="admin-field" style="margin-bottom:.8rem;">
+      <label for="gh-token">GitHub Personal Access Token</label>
+      <input type="password" id="gh-token" placeholder="ghp_...">
+      <div class="hint">
+        Needs a <strong>fine-grained token</strong> scoped only to the
+        <code>ranjithkannankattil.github.io</code> repo, with Contents: Read and Write
+        permission. Create one at
+        <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener" style="border-bottom:1px solid currentColor;">github.com/settings/personal-access-tokens</a>.
+        Never shared with anyone but GitHub — sent directly from your browser to
+        api.github.com and nowhere else.
+      </div>
+    </div>
+    <label class="admin-check">
+      <input type="checkbox" id="remember-token">
+      Remember this token on this device (stored in localStorage — only do this on your own computer)
+    </label>
+  </div>
+
+  <form id="post-form">
+    <div class="admin-field">
+      <label for="title-ml">Title (Malayalam) *</label>
+      <input type="text" id="title-ml" required>
+    </div>
+
+    <div class="admin-field">
+      <label for="title-en">Title (English translation — optional)</label>
+      <input type="text" id="title-en">
+    </div>
+
+    <div class="admin-row">
+      <div class="admin-field">
+        <label for="post-date">Date</label>
+        <input type="date" id="post-date">
+      </div>
+      <div class="admin-field">
+        <label for="post-tags">Tags (comma-separated)</label>
+        <input type="text" id="post-tags" placeholder="ഗദ്യം, പ്രകൃതി">
+      </div>
+    </div>
+
+    <div class="admin-field">
+      <label for="post-body">Body</label>
+      <textarea id="post-body" required placeholder="Write here. Leave a blank line between paragraphs."></textarea>
+      <div class="hint">Each blank line becomes a new paragraph, matching the rest of the archive.</div>
+    </div>
+
+    <div class="admin-field">
+      <label for="post-url">Link to original (optional — e.g. if also posted elsewhere)</label>
+      <input type="text" id="post-url" placeholder="https://...">
+    </div>
+
+    <button type="submit" class="publish-btn" id="publish-btn">Publish to GitHub</button>
+    <button type="button" class="publish-btn" id="new-post-btn" style="background:var(--paper-2); color:var(--ink); border:1px solid var(--line);">Clear / write new post</button>
+    <div id="admin-status" class="admin-status"></div>
+  </form>
+
+  <div class="diamond-rule"><span class="diamond-mark">◆</span></div>
+  <p style="font-family:var(--f-mono); font-size:.75rem; color:var(--ink-soft);">
+    <a href="writings.html" style="border-bottom:1px solid currentColor;">← Back to Writings</a>
+  </p>
+
+</main>
+
+<script src="js/posts.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>
