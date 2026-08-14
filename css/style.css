@@ -361,12 +361,19 @@ footer .diamond-mark{ color:var(--accent); margin:0 .5rem; }
 #tag-filter{
   font-family:var(--f-mono);
   font-size:.75rem;
-  padding:.7rem .9rem;
+  padding:.7rem 2rem .7rem .9rem;
   border:1px solid var(--line);
-  background:var(--paper);
+  background-color:var(--paper);
   color:var(--ink);
   border-radius:2px;
+  -webkit-appearance:none;
+  -moz-appearance:none;
+  appearance:none;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6'><path d='M0 0 L5 6 L10 0 Z' fill='%234A4A4C'/></svg>");
+  background-repeat:no-repeat;
+  background-position:right .8rem center;
 }
+#tag-filter:hover{ border-color:var(--accent); }
 .result-count{
   font-family:var(--f-mono);
   font-size:.75rem;
