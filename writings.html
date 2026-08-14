@@ -7,8 +7,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&family=Manjari:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
+<link rel="alternate" type="application/rss+xml" title="Ranjith — Writings" href="feed.xml">
 </head>
-<body data-section="writings">
+<body data-section="writings" id="top">
 
 <header class="titleblock">
   <div>
@@ -17,9 +18,10 @@
   </div>
   <nav class="tabs">
     <a href="index.html">Home</a>
-    <a href="cv.html">CV</a>
     <a href="photography.html">Photography</a>
     <a href="writings.html" class="active">Writings</a>
+    <a href="publications.html">Publications</a>
+    <a href="cv.html">The Work</a>
   </nav>
 </header>
 
@@ -33,17 +35,21 @@
 
   <div class="search-row">
     <input id="search-input" type="text" placeholder="Search titles, tags, text…" autocomplete="off">
-    <select id="blog-filter">
-      <option value="">All blogs</option>
-    </select>
     <select id="tag-filter">
       <option value="">All tags</option>
     </select>
+    <a href="#" id="random-post" class="chip-btn" style="align-self:center;">🎲 Random</a>
+    <a href="feed.xml" class="chip-btn" style="align-self:center;" title="RSS feed">RSS</a>
   </div>
+
+  <div id="popular-tags" class="popular-tags"></div>
+  <div id="active-filters" class="active-filters"></div>
   <div id="result-count" class="result-count"></div>
 
   <div id="archive"></div>
 </main>
+
+<a href="#top" id="back-to-top" class="back-to-top">↑ TOP</a>
 
 <footer>
   <div>© <span id="year"></span> Ranjith</div>

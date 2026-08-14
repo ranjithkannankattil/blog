@@ -24,7 +24,7 @@
 
   main.innerHTML = `
     <div class="post-meta">
-      ${post.date} &nbsp;·&nbsp; ${post.blog || SRC_LABEL[post.source] || post.source}
+      ${post.date}
       ${post.tags && post.tags.length ? '&nbsp;·&nbsp; ' + post.tags.join(', ') : ''}
       ${post.source_url ? `&nbsp;·&nbsp; <a href="${post.source_url}" target="_blank" rel="noopener" style="border-bottom:1px solid currentColor;">original ↗</a>` : ''}
     </div>
